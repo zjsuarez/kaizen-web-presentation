@@ -9,35 +9,31 @@ function ERDNode({ label, isPrimary = false }: { label: string; isPrimary?: bool
       className={`rounded-lg px-3 py-1.5 font-oswald font-bold text-[13px] border ${
         isPrimary
           ? "border-crayola-blue/50 bg-crayola-blue/10 text-crayola-blue"
-          : "border-white/10 bg-shadow-grey text-white"
+          : "border-white/10 text-white"
       }`}
+      style={isPrimary ? undefined : { background: "#242328" }}
     >
       {label}
     </div>
   );
 }
 
-function Connector({ label, color = "rgba(255,255,255,0.2)" }: { label?: string; color?: string }) {
-  return (
-    <div className="flex items-center gap-1 my-1 ml-4">
-      <div className="w-px h-4" style={{ background: color }} />
-      {label && (
-        <span className="font-inter text-[9px] text-crayola-blue ml-1">{label}</span>
-      )}
-    </div>
-  );
-}
+const infoBadges = [
+  "9 tablas · 3 enums",
+  "Hibernate ddl-auto=update",
+  "MySQL · TiDB Cloud · Spring Data JPA",
+];
 
 export default function Slide07Database() {
   return (
-    <div className="w-full h-full bg-onyx flex flex-col px-12 py-10 pb-14 relative overflow-hidden">
+    <div className="w-full h-full bg-onyx flex flex-col px-12 py-8 pb-14 relative overflow-hidden">
       <motion.h2
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="font-oswald font-bold text-[44px] text-white tracking-tight mb-6"
+        className="font-oswald font-bold text-[44px] text-white tracking-tight mb-5"
       >
-        DATABASE &amp; KEY ALGORITHM
+        BASE DE DATOS Y ALGORITMO CLAVE
       </motion.h2>
 
       <div className="flex gap-8 flex-1 min-h-0">
@@ -50,32 +46,60 @@ export default function Slide07Database() {
           className="flex flex-col"
           style={{ flex: "0 0 58%" }}
         >
-          <h3 className="font-oswald font-bold text-[16px] text-white/50 mb-4 tracking-widest uppercase">
-            Entity Relationship — Simplified
+          <h3 className="font-oswald font-bold text-[16px] text-white/50 mb-3 tracking-widest uppercase">
+            Entidad-Relación — Simplificado
           </h3>
 
           <div className="flex flex-col gap-0 pl-0">
-            {/* USER */}
-            <ERDNode label="USER" isPrimary />
+            {/* USER root */}
+            <ERDNode label="USUARIO" isPrimary />
 
             <div className="ml-4 border-l border-white/10 pl-3 flex flex-col gap-0">
+
+              {/* UserPreferences — 1:1 */}
+              <motion.div
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.45 }}
+                className="mt-2 flex items-center gap-1"
+              >
+                <div className="w-3 h-px" style={{ background: "#E5E5E7", opacity: 0.3 }} />
+                <ERDNode label="PREF. DE USUARIO" />
+                <span className="font-inter text-[9px] text-white/35 ml-1 font-medium">1:1</span>
+              </motion.div>
+
+              {/* BodyMeasurements — 1:N */}
+              <motion.div
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.52 }}
+                className="mt-1.5 flex items-center gap-1"
+              >
+                <div className="w-3 h-px" style={{ background: "#E5E5E7", opacity: 0.3 }} />
+                <ERDNode label="MEDIDAS CORPORALES" />
+                <span className="font-inter text-[9px] text-white/35 ml-1 font-medium">1:N</span>
+              </motion.div>
+
+              {/* Visual separator between simple entities and training hierarchy */}
+              <div className="my-2 ml-0 w-12 h-px bg-white/[0.06]" />
+
               {/* Training Plan branch */}
-              <div className="mt-2">
+              <div className="mt-0">
                 <div className="flex items-center gap-1">
                   <div className="w-3 h-px bg-white/15" />
-                  <ERDNode label="TRAINING PLAN" />
+                  <ERDNode label="PLAN DE ENTRENAMIENTO" />
                 </div>
                 <div className="ml-8 border-l border-white/10 pl-3 mt-1 mb-2">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 flex-wrap">
                     <div className="w-3 h-px bg-white/15" />
-                    <ERDNode label="ROUTINE" />
+                    <ERDNode label="RUTINA" />
                     <span className="font-inter text-[9px] text-crayola-blue mx-1 font-bold">──[N:M]──</span>
-                    <ERDNode label="ROUTINE EXERCISE" />
+                    <ERDNode label="EJERCICIO DE RUTINA" />
                     <span className="font-inter text-[9px] text-white/30 mx-1">──</span>
-                    <ERDNode label="EXERCISE" />
+                    <ERDNode label="EJERCICIO" />
                   </div>
                   <p className="font-inter text-[10px] text-crayola-blue mt-1 ml-4">
-                    N:M via RoutineExercises · stores order, target sets, rest
+                    N:M via RoutineExercises · almacena orden, series objetivo, descanso
                   </p>
                 </div>
               </div>
@@ -84,12 +108,12 @@ export default function Slide07Database() {
               <div className="mt-1">
                 <div className="flex items-center gap-1">
                   <div className="w-3 h-px bg-white/15" />
-                  <ERDNode label="WORKOUT" />
+                  <ERDNode label="ENTRENAMIENTO" />
                 </div>
                 <div className="ml-8 border-l border-white/10 pl-3 mt-1">
                   <div className="flex items-center gap-1">
                     <div className="w-3 h-px bg-white/15" />
-                    <ERDNode label="WORKOUT SET" />
+                    <ERDNode label="SERIE" />
                   </div>
                   <div className="ml-8 border-l border-white/10 pl-3 mt-1">
                     <div className="flex items-center gap-1">
@@ -105,14 +129,27 @@ export default function Slide07Database() {
             </div>
           </div>
 
-          {/* Table count */}
-          <div className="mt-auto pt-3 border-t border-white/[0.07] flex items-center gap-4">
-            <span className="font-inter text-[12px] text-white/30">9 tables total</span>
-            <span className="font-inter text-[12px] text-white/30">·</span>
-            <span className="font-inter text-[12px] text-white/30">MySQL / TiDB Cloud</span>
-            <span className="font-inter text-[12px] text-white/30">·</span>
-            <span className="font-inter text-[12px] text-white/30">Spring Data JPA</span>
-          </div>
+          {/* Info badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-auto pt-3 border-t border-white/[0.07] flex flex-wrap gap-2"
+          >
+            {infoBadges.map((badge) => (
+              <span
+                key={badge}
+                className="font-inter text-[11px] px-3 py-1 rounded-sm"
+                style={{
+                  background: "#242328",
+                  color: "#E5E5E7",
+                  borderLeft: "2px solid #2979FF",
+                }}
+              >
+                {badge}
+              </span>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Vertical separator */}
@@ -137,14 +174,12 @@ export default function Slide07Database() {
           >
             <div className="text-center">
               <span className="font-oswald font-bold text-[14px] text-crayola-blue tracking-widest uppercase">
-                1RM Estimation
+                Estimación de 1RM
               </span>
-              <p className="font-inter text-[11px] text-white/30 mt-0.5">Epley Formula</p>
+              <p className="font-inter text-[11px] text-white/30 mt-0.5">Fórmula de Epley</p>
             </div>
 
-            <div
-              className="rounded-lg bg-onyx border border-white/[0.08] px-5 py-4 text-center"
-            >
+            <div className="rounded-lg bg-onyx border border-white/[0.08] px-5 py-4 text-center">
               <code className="font-mono text-[20px] text-white tracking-wide">
                 1RM = weight × (1 + reps / 30)
               </code>
@@ -152,11 +187,11 @@ export default function Slide07Database() {
 
             <div className="flex flex-col gap-2 border-t border-white/[0.07] pt-3">
               <div className="flex justify-between items-center">
-                <span className="font-inter text-[12px] text-white/40">Input</span>
+                <span className="font-inter text-[12px] text-white/40">Entrada</span>
                 <span className="font-inter text-[13px] text-white">100 kg × 8 reps</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-inter text-[12px] text-white/40">Estimated 1RM</span>
+                <span className="font-inter text-[12px] text-white/40">1RM Estimado</span>
                 <span
                   className="font-oswald font-bold text-[22px] text-malachite"
                   style={{ textShadow: "0 0 12px rgba(0,230,118,0.4)" }}
@@ -167,8 +202,27 @@ export default function Slide07Database() {
             </div>
 
             <p className="font-inter text-[11px] italic text-white/30 text-center border-t border-white/[0.07] pt-3">
-              Used for real-time PR detection and progress tracking
+              Usada para detección de PR en tiempo real y seguimiento de progreso
             </p>
+
+            {/* isPR detection section */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65 }}
+              className="flex flex-col gap-1.5 pt-3"
+              style={{ borderTop: "1px solid #242328" }}
+            >
+              <span className="font-oswald font-bold text-[14px] text-crayola-blue">
+                Detección de isPR
+              </span>
+              <p className="font-inter text-[12px] italic" style={{ color: "#E5E5E7" }}>
+                Cada serie guardada se compara automáticamente con el mejor
+                registro histórico del usuario para ese ejercicio. Si el 1RM
+                estimado lo supera, la serie queda marcada{" "}
+                <code className="font-mono not-italic text-malachite">isPR = true</code>.
+              </p>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

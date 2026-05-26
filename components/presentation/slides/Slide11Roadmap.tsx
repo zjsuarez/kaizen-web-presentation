@@ -7,32 +7,32 @@ import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 const roadmap = [
   {
     icon: Brain,
-    title: "Native AI",
-    desc: "Flask PoC integrated directly into the mobile app as a core feature",
-    tag: "High priority",
+    title: "IA Nativa",
+    desc: "Flask PoC integrado directamente en la app móvil como función principal",
+    tag: "Alta prioridad",
   },
   {
     icon: FileDown,
-    title: "CSV Export",
-    desc: "Backend queries already in place. UI + download endpoint only",
-    tag: "Quick win",
+    title: "Exportar CSV",
+    desc: "Consultas backend ya implementadas. Solo falta UI + endpoint de descarga",
+    tag: "Ganancia rápida",
   },
   {
     icon: WifiOff,
-    title: "Full Offline",
-    desc: "Extend Room cache to the complete workout logging flow",
-    tag: "Architecture",
+    title: "Modo Offline Total",
+    desc: "Extender caché de Room al flujo completo de registro de entrenamiento",
+    tag: "Arquitectura",
   },
   {
     icon: Palette,
-    title: "Themes",
-    desc: "Alternative visual themes — maintaining high-contrast utility-first constraints",
+    title: "Temas",
+    desc: "Temas visuales alternativos — manteniendo restricciones de alto contraste utility-first",
     tag: "UX",
   },
   {
     icon: GitBranch,
     title: "CI/CD",
-    desc: "GitHub Actions pipeline for automated backend testing and deployment",
+    desc: "Pipeline de GitHub Actions para pruebas y despliegue automático del backend",
     tag: "DevOps",
   },
 ];
@@ -56,7 +56,7 @@ export default function Slide11Roadmap() {
         className="self-start mb-8 w-full"
       >
         <h2 className="font-oswald font-bold text-[44px] text-white tracking-tight">
-          WHAT&apos;S NEXT — V3 ROADMAP
+          QUÉ SIGUE — HOJA DE RUTA V3
         </h2>
       </motion.div>
 
@@ -113,7 +113,7 @@ export default function Slide11Roadmap() {
         transition={{ delay: 0.65 }}
         className="font-inter text-[13px] italic text-alabaster-grey/35 text-center mt-6"
       >
-        "The backend architecture is already prepared to support all these integrations."
+        "La arquitectura del backend ya está preparada para soportar todas estas integraciones."
       </motion.p>
     </div>
   );

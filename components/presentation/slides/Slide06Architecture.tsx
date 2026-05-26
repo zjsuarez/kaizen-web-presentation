@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, staggerItem, fadeInLeft, fadeInRight } from "@/lib/animations";
 
 const androidLayers = [
-  { label: "Presentation Layer", sub: "Compose Screens + ViewModels" },
-  { label: "Domain Layer", sub: "UseCases + Repository Interfaces" },
-  { label: "Data Layer", sub: "Retrofit + Room + Repository Impl" },
-  { label: "Network / Local DB", sub: "API Calls + Room Database" },
+  { label: "Capa de Presentación", sub: "Compose Screens + ViewModels" },
+  { label: "Capa de Dominio", sub: "UseCases + Repository Interfaces" },
+  { label: "Capa de Datos", sub: "Retrofit + Room + Repository Impl" },
+  { label: "Red / BD Local", sub: "API Calls + Room Database" },
 ];
 
 const backendLayers = [
-  { label: "Controller Layer", sub: "REST Endpoints" },
-  { label: "Service Layer", sub: "Business Logic" },
-  { label: "Repository Layer", sub: "Spring Data JPA" },
+  { label: "Capa Controladora", sub: "REST Endpoints" },
+  { label: "Capa de Servicio", sub: "Lógica de Negocio" },
+  { label: "Capa de Repositorio", sub: "Spring Data JPA" },
 ];
 
-const badges = ["Stateless JWT Auth", "Feature-sliced Clean Arch", "Offline-first Dashboard"];
+const badges = ["Autenticación JWT sin estado", "Arquitectura limpia por funcionalidad", "Panel con modo offline-first"];
 
 function ArchBlock({
   title,
@@ -67,13 +67,13 @@ export default function Slide06Architecture() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white tracking-tight mb-8"
       >
-        SYSTEM ARCHITECTURE
+        ARQUITECTURA DEL SISTEMA
       </motion.h2>
 
       {/* Diagram row */}
       <div className="flex items-stretch gap-0 flex-1 min-h-0">
         {/* Android block */}
-        <ArchBlock title="Android App — Clean Architecture" layers={androidLayers} delay={0.1} variant="left" />
+        <ArchBlock title="App Android — Arquitectura Limpia" layers={androidLayers} delay={0.1} variant="left" />
 
         {/* Arrow */}
         <motion.div
@@ -117,7 +117,7 @@ export default function Slide06Architecture() {
 
         {/* Spring Boot block + MySQL */}
         <div className="flex flex-col gap-3" style={{ flex: 1 }}>
-          <ArchBlock title="Spring Boot API — 3-Layer Architecture" layers={backendLayers} delay={0.2} variant="right" />
+          <ArchBlock title="API Spring Boot — Arquitectura de 3 Capas" layers={backendLayers} delay={0.2} variant="right" />
 
           {/* MySQL pill */}
           <motion.div

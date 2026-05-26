@@ -9,31 +9,31 @@ const team = [
     name: "Zyrl Justin Suárez Untalan",
     initials: "ZS",
     role: "Full-Stack Developer",
-    focus: "Frontend Focus",
+    focus: "Enfoque Frontend",
     education: "SMX → DAM 2 STUCOM",
     contributions: [
       "Frontend completo en Kotlin & Jetpack Compose",
-      "Industrial Dark Mode UI design system",
-      "Zero-friction UX & navigation architecture",
+      "Sistema de diseño UI Industrial Dark Mode",
+      "UX sin fricción y arquitectura de navegación",
     ],
-    quote: "Passionate about clean UI and zero-friction mobile experiences.",
+    quote: "Apasionado por una UI limpia y experiencias móviles sin fricción.",
     linkedin: "linkedin.com/in/zjsuarez/",
-    goal: "Mobile development with Flutter",
+    goal: "Desarrollo móvil con Flutter",
   },
   {
     name: "John Henard Salango",
     initials: "JS",
     role: "Full-Stack Developer",
-    focus: "Backend Focus",
+    focus: "Enfoque Backend",
     education: "SMX → DAM 2 STUCOM",
     contributions: [
       "API REST con Spring Boot 3",
       "Sistema de autenticación JWT + OAuth",
       "Base de datos MySQL · Lógica de negocio",
     ],
-    quote: "I enjoy building reliable systems and solving complex logic problems.",
+    quote: "Disfruto construyendo sistemas confiables y resolviendo problemas lógicos complejos.",
     linkedin: "linkedin.com/in/john-henard-salango-fernandez-99a129355",
-    goal: "Cross-platform development with Flutter",
+    goal: "Desarrollo multiplataforma con Flutter",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function Slide02Team() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white mb-8 tracking-tight"
       >
-        THE TEAM
+        EL EQUIPO
       </motion.h2>
 
       <motion.div
@@ -131,7 +131,7 @@ export default function Slide02Team() {
 
             {/* Goal */}
             <div className="text-[11px] font-inter text-alabaster-grey/35 border-t border-white/[0.06] pt-2">
-              <span className="text-crayola-blue/60">Goal:</span>{" "}
+              <span className="text-crayola-blue/60">Objetivo:</span>{" "}
               {member.goal}
             </div>
           </motion.div>

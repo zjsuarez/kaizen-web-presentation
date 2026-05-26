@@ -7,53 +7,53 @@ import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 const sections = [
   {
     icon: CheckCircle2,
-    title: "API Testing",
+    title: "Pruebas de API",
     accent: "#2979FF",
     metrics: [
-      { label: "Requests", value: "38" },
-      { label: "Groups", value: "8" },
-      { label: "Assertions", value: "120+" },
+      { label: "Solicitudes", value: "38" },
+      { label: "Grupos", value: "8" },
+      { label: "Aserciones", value: "120+" },
     ],
     details: [
-      "JWT flow end-to-end validation",
+      "Validación JWT de extremo a extremo",
       "HTTP codes: 200, 201, 204, 400, 401, 404",
-      "401 enforcement on protected routes",
-      "Response time < 600 ms",
-      "Schema validation per endpoint",
+      "Aplicación de 401 en rutas protegidas",
+      "Tiempo de respuesta < 600 ms",
+      "Validación de esquema por endpoint",
     ],
   },
   {
     icon: Layers,
-    title: "Form Validation",
+    title: "Validación de Formularios",
     accent: "#2979FF",
     metrics: [
-      { label: "Layers", value: "2" },
-      { label: "Strategy", value: "Pre + Post" },
-      { label: "Fields", value: "5+" },
+      { label: "Capas", value: "2" },
+      { label: "Estrategia", value: "Pre + Post" },
+      { label: "Campos", value: "5+" },
     ],
     details: [
-      "Frontend: Jetpack Compose pre-request",
+      "Frontend: Jetpack Compose pre-petición",
       "Backend: Spring Validation (400 Bad Request)",
-      "username, email, password fields",
-      "Password strength + confirm match",
-      "Error message propagation to UI",
+      "Campos: username, email, contraseña",
+      "Fortaleza de contraseña + confirmación",
+      "Propagación de mensajes de error al UI",
     ],
   },
   {
     icon: Database,
-    title: "DB Stress Test",
+    title: "Prueba de Estrés de BD",
     accent: "#2979FF",
     metrics: [
-      { label: "Profiles", value: "3" },
-      { label: "Workouts", value: "48" },
-      { label: "Sets", value: "~96" },
+      { label: "Perfiles", value: "3" },
+      { label: "Entrenamientos", value: "48" },
+      { label: "Series", value: "~96" },
     ],
     details: [
-      "SQL seed script — INSERT IGNORE (idempotent)",
+      "Script SQL de datos — INSERT IGNORE (idempotente)",
       "Users: alex_lifts, maria_strong, john_powerlifts",
-      "Data range: January – May 2026",
-      "Full statistics coverage for all charts",
-      "Safe to re-run without duplicates",
+      "Rango de datos: enero – mayo 2026",
+      "Cobertura estadística completa para todas las gráficas",
+      "Seguro de re-ejecutar sin duplicados",
     ],
   },
 ];
@@ -74,7 +74,7 @@ export default function Slide09Testing() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white tracking-tight mb-7"
       >
-        TECHNICAL TESTING
+        PRUEBAS TÉCNICAS
       </motion.h2>
 
       <motion.div

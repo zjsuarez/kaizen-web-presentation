@@ -31,7 +31,7 @@ const columns = [
     ],
   },
   {
-    label: "INFRASTRUCTURE",
+    label: "INFRAESTRUCTURA",
     sublabel: "Cloud / DevOps",
     items: [
       "TiDB Cloud (MySQL-compatible)",
@@ -65,7 +65,7 @@ export default function Slide05Stack() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white tracking-tight mb-7"
       >
-        TECH STACK
+        STACK TECNOLÓGICO
       </motion.h2>
 
       <motion.div
@@ -125,15 +125,15 @@ export default function Slide05Stack() {
       >
         <div className="bg-shadow-grey border border-crayola-blue/20 rounded-full px-5 py-2 flex items-center gap-3">
           <span className="font-inter text-[11px] text-white/40 uppercase tracking-widest">
-            AI Prototype
+            Prototipo de IA
           </span>
           <div className="w-px h-3 bg-white/10" />
           <span className="font-inter text-[13px] text-alabaster-grey/70">
-            Python 3 + Flask — Standalone PoC
+            Python 3 + Flask — PoC independiente
           </span>
           <div className="w-px h-3 bg-white/10" />
           <span className="font-inter text-[11px] text-crayola-blue/70">
-            Natural language → workout plan
+            Lenguaje natural → plan de entrenamiento
           </span>
         </div>
       </motion.div>

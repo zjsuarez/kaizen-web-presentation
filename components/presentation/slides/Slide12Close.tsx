@@ -20,9 +20,9 @@ const links = [
   },
   {
     icon: Youtube,
-    label: "Demo Video",
+    label: "Video Demo",
     url: "youtube.com/watch?v=KnZ7yM_tm-I",
-    sub: "Full walkthrough",
+    sub: "Demostración completa",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function Slide12Close() {
           className="font-oswald font-bold text-white leading-none tracking-tight"
           style={{ fontSize: "clamp(56px, 8vw, 88px)" }}
         >
-          Thank you.
+          Gracias.
         </motion.h1>
 
         {/* Separator */}
@@ -121,7 +121,7 @@ export default function Slide12Close() {
         transition={{ delay: 0.8 }}
         className="absolute bottom-10 font-inter text-[18px] text-alabaster-grey/25 z-10 tracking-wide"
       >
-        Questions?
+        ¿Preguntas?
       </motion.p>
     </div>
   );

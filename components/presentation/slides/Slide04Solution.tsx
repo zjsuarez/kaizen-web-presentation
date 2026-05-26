@@ -4,32 +4,32 @@ import { motion } from "framer-motion";
 import KaizenLogo from "@/components/ui/KaizenLogo";
 import { staggerContainer, staggerItem, fadeInUp, fadeInLeft, fadeInRight } from "@/lib/animations";
 
-const pills = ["Zero Friction", "Progressive Overload", "No Social Clutter"];
+const pills = ["Sin Fricción", "Sobrecarga Progresiva", "Sin Ruido Social"];
 
 const features = [
   {
-    title: "Workout Logger",
-    desc: "Zen Mode with live timer and automatic PR detection",
+    title: "Registro de Entrenamiento",
+    desc: "Modo Zen con cronómetro en vivo y detección automática de PR",
   },
   {
-    title: "Routine & Plan Builder",
-    desc: "3-step guided creation with drag-and-drop ordering",
+    title: "Constructor de Rutinas y Planes",
+    desc: "Creación guiada en 3 pasos con orden por arrastrar y soltar",
   },
   {
-    title: "Analytics Lab",
-    desc: "10+ charts: 1RM trends, volume, muscle frequency, fatigue",
+    title: "Laboratorio de Analíticas",
+    desc: "10+ gráficas: tendencias de 1RM, volumen, frecuencia muscular, fatiga",
   },
   {
-    title: "Custom Dashboard",
-    desc: "Modular widget grid with offline-first WorkManager sync",
+    title: "Panel Personalizable",
+    desc: "Cuadrícula de widgets modular con sincronización offline-first via WorkManager",
   },
   {
-    title: "Google OAuth + Emails",
-    desc: "Credential Manager sign-in + automated post-workout emails",
+    title: "Google OAuth + Correos",
+    desc: "Inicio de sesión con Credential Manager + correos automáticos post-entrenamiento",
   },
   {
-    title: "AI Prototype (Flask PoC)",
-    desc: "Natural language input → structured workout plan in JSON",
+    title: "Prototipo de IA (Flask PoC)",
+    desc: "Entrada en lenguaje natural → plan de entrenamiento estructurado en JSON",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function Slide04Solution() {
                 KAIZEN
               </h2>
               <p className="font-inter text-[12px] text-alabaster-grey/55">
-                Your personal strength tracker
+                Tu rastreador de fuerza personal
               </p>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function Slide04Solution() {
           animate="visible"
           className="font-oswald font-bold text-[22px] text-white mb-3 tracking-tight"
         >
-          CORE FEATURES
+          CARACTERÍSTICAS PRINCIPALES
         </motion.h3>
 
         <motion.div

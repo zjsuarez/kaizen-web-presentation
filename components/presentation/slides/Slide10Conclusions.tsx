@@ -4,34 +4,34 @@ import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from "@/lib/animations";
 
 const achieved = [
-  "Core training loop (plans, routines, Zen Mode)",
+  "Flujo principal de entrenamiento (planes, rutinas, Modo Zen)",
   "JWT Auth + BCrypt + Multilingual (EN/ES/CA)",
-  "Advanced analytics (10+ charts)",
-  "Customizable dashboard (offline-first)",
-  "Google OAuth + Post-workout emails",
-  "Postman collection (38 req / 120+ assertions)",
-  "SQL dummy data seeding",
-  "AI Flask PoC",
+  "Analíticas avanzadas (10+ gráficas)",
+  "Panel personalizable (offline-first)",
+  "Google OAuth + Correos post-entrenamiento",
+  "Colección Postman (38 peticiones / 120+ aserciones)",
+  "Inserción de datos de prueba SQL",
+  "PoC de IA con Flask",
 ];
 
 const notAchieved = [
-  { text: "CI/CD Pipeline", note: "replaced by Postman automation" },
-  { text: "Customizable themes", note: "planned V3" },
-  { text: "Native AI integration", note: "intentional — Flask PoC proves concept" },
+  { text: "CI/CD Pipeline", note: "sustituido por automatización en Postman" },
+  { text: "Temas personalizables", note: "previsto para V3" },
+  { text: "Integración nativa de IA", note: "intencional — el Flask PoC demuestra el concepto" },
 ];
 
 const problemsSolved = [
   {
-    problem: "Google OAuth client ID mismatch",
-    fix: "Fixed with Web Client ID in Android Credential Manager",
+    problem: "Desajuste de client ID en Google OAuth",
+    fix: "Corregido con Web Client ID en Android Credential Manager",
   },
   {
-    problem: "Dashboard stale data after workout",
-    fix: "WorkManager background sync on connectivity restore",
+    problem: "Datos desactualizados en el panel después de entrenar",
+    fix: "Sincronización en segundo plano con WorkManager al restaurar conectividad",
   },
   {
-    problem: "Workouts navigation confusion",
-    fix: "Empty state redesign with step-by-step guided creation",
+    problem: "Confusión en la navegación de entrenamientos",
+    fix: "Rediseño del estado vacío con creación guiada paso a paso",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function Slide10Conclusions() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white tracking-tight mb-6"
       >
-        CONCLUSIONS
+        CONCLUSIONES
       </motion.h2>
 
       <div className="flex gap-6 flex-1 min-h-0">
@@ -58,7 +58,7 @@ export default function Slide10Conclusions() {
           style={{ flex: 1 }}
         >
           <h3 className="font-oswald font-bold text-[22px] text-malachite mb-3 flex items-center gap-2">
-            <span style={{ textShadow: "0 0 12px rgba(0,230,118,0.4)" }}>ACHIEVED</span>
+            <span style={{ textShadow: "0 0 12px rgba(0,230,118,0.4)" }}>LOGRADO</span>
           </h3>
           <motion.div
             className="flex flex-col gap-2"
@@ -91,7 +91,7 @@ export default function Slide10Conclusions() {
           {/* Not achieved */}
           <div>
             <h3 className="font-oswald font-bold text-[22px] text-blazing-flame mb-3">
-              NOT ACHIEVED
+              NO LOGRADO
             </h3>
             <motion.div
               className="flex flex-col gap-2"
@@ -120,7 +120,7 @@ export default function Slide10Conclusions() {
           {/* Problems solved */}
           <div>
             <h3 className="font-oswald font-bold text-[18px] text-crayola-blue mb-3 tracking-wide">
-              PROBLEMS SOLVED
+              PROBLEMAS RESUELTOS
             </h3>
             <motion.div
               className="flex flex-col gap-2"

@@ -5,22 +5,22 @@ import { Shield } from "lucide-react";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const endpoints = [
-  { group: "Auth (public)", desc: "/register · /login · /oauth/google" },
-  { group: "User Profile", desc: "GET · PUT /users/me" },
-  { group: "Exercises", desc: "GET all · POST · GET by ID" },
-  { group: "Training Plans", desc: "Full CRUD (5 endpoints)" },
-  { group: "Routines", desc: "Full CRUD + exercise replace (6 endpoints)" },
-  { group: "Workouts", desc: "POST · GET all · GET by ID" },
-  { group: "Body Measurements", desc: "POST · GET history" },
-  { group: "Dashboard", desc: "Summary · PR History" },
-  { group: "Statistics", desc: "11 analytics endpoints" },
-  { group: "Widget Preferences", desc: "GET · PUT layout" },
+  { group: "Auth (público)", desc: "/register · /login · /oauth/google" },
+  { group: "Perfil de Usuario", desc: "GET · PUT /users/me" },
+  { group: "Ejercicios", desc: "GET all · POST · GET by ID" },
+  { group: "Planes de Entrenamiento", desc: "CRUD completo (5 endpoints)" },
+  { group: "Rutinas", desc: "CRUD completo + reemplazo de ejercicio (6 endpoints)" },
+  { group: "Entrenamientos", desc: "POST · GET all · GET by ID" },
+  { group: "Medidas Corporales", desc: "POST · GET history" },
+  { group: "Panel", desc: "Resumen · Historial de PR" },
+  { group: "Estadísticas", desc: "11 endpoints de analíticas" },
+  { group: "Preferencias de Widgets", desc: "GET · PUT layout" },
 ];
 
 const stats = [
   { value: "38", label: "Endpoints" },
-  { value: "120+", label: "Assertions" },
-  { value: "8", label: "Groups" },
+  { value: "120+", label: "Aserciones" },
+  { value: "8", label: "Grupos" },
 ];
 
 export default function Slide08API() {
@@ -59,10 +59,10 @@ export default function Slide08API() {
         {/* Table header */}
         <div className="grid grid-cols-[1fr_2fr] bg-crayola-blue/20 border-b border-crayola-blue/20 px-5 py-2.5">
           <span className="font-oswald font-bold text-[13px] text-crayola-blue tracking-widest uppercase">
-            Group
+            Grupo
           </span>
           <span className="font-oswald font-bold text-[13px] text-crayola-blue tracking-widest uppercase">
-            Coverage
+            Cobertura
           </span>
         </div>
 
@@ -100,7 +100,7 @@ export default function Slide08API() {
           </div>
         ))}
         <div className="flex flex-col items-center gap-0.5 justify-center">
-          <span className="font-inter text-[11px] text-white/25 uppercase tracking-widest">Collection</span>
+          <span className="font-inter text-[11px] text-white/25 uppercase tracking-widest">Colección</span>
           <span className="font-inter text-[13px] text-alabaster-grey/50">Postman</span>
         </div>
       </motion.div>

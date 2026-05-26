@@ -50,14 +50,14 @@ export default function Slide01Cover() {
           variants={staggerItem}
           className="font-inter text-[18px] text-alabaster-grey/75 tracking-wide"
         >
-          Gym Tracking App
+          Aplicación de Seguimiento Deportivo
         </motion.p>
 
         <motion.p
           variants={staggerItem}
           className="font-inter text-[14px] text-alabaster-grey/50 italic"
         >
-          "Your personal strength tracker"
+          "Tu rastreador de fuerza personal"
         </motion.p>
 
         <motion.div
@@ -65,7 +65,7 @@ export default function Slide01Cover() {
           className="mt-3 pt-4 border-t border-white/[0.08] flex flex-col items-center gap-1.5"
         >
           <p className="font-inter text-[13px] text-alabaster-grey/45">
-            Software Architecture &amp; Implementation Manual — V2
+            Manual de Arquitectura e Implementación de Software — V2
           </p>
           <p className="font-inter text-[12px] text-alabaster-grey/35">
             24 / 05 / 2026

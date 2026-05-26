@@ -27,7 +27,7 @@ export default function ProgressBar({ current, total, onNavigate }: ProgressBarP
               <button
                 key={i}
                 onClick={() => onNavigate(i)}
-                aria-label={`Go to slide ${i + 1}: ${slides[i]?.title}`}
+                aria-label={`Ir a la diapositiva ${i + 1}: ${slides[i]?.title}`}
                 className={`rounded-full transition-all duration-300 ${
                   i === current
                     ? "w-5 h-1.5 bg-crayola-blue"

@@ -35,14 +35,14 @@ export default function NavigationControls({
         </span>
         <button
           onClick={handleFullscreen}
-          aria-label="Toggle fullscreen"
+          aria-label="Alternar pantalla completa"
           className="p-1.5 rounded text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors"
         >
           <Maximize2 size={13} />
         </button>
         <button
           onClick={onReset}
-          aria-label="Reset to first slide"
+          aria-label="Volver a la primera diapositiva"
           className="p-1.5 rounded text-white/30 hover:text-white/70 hover:bg-white/5 transition-colors"
         >
           <RotateCcw size={13} />
@@ -52,15 +52,15 @@ export default function NavigationControls({
       {/* Bottom-left: keyboard hint */}
       <div className="absolute bottom-7 left-4 z-50 select-none">
         <span className="font-inter text-[10px] text-white/20 tracking-wide">
-          ← → navigate · F fullscreen · Home · End
+          ← → navegar · F pantalla completa · Home · End
         </span>
       </div>
 
       {/* Left nav button */}
       <button
         onClick={onPrev}
-        aria-label="Previous slide"
-        disabled={currentIndex === 0}
+        aria-label="Diapositiva anterior"
+        aria-disabled={currentIndex === 0}
         className={`absolute left-3 top-1/2 -translate-y-1/2 z-50 p-2 rounded-lg border transition-all duration-200 ${
           currentIndex === 0
             ? "opacity-0 pointer-events-none"
@@ -73,8 +73,8 @@ export default function NavigationControls({
       {/* Right nav button */}
       <button
         onClick={onNext}
-        aria-label="Next slide"
-        disabled={currentIndex === total - 1}
+        aria-label="Diapositiva siguiente"
+        aria-disabled={currentIndex === total - 1}
         className={`absolute right-3 top-1/2 -translate-y-1/2 z-50 p-2 rounded-lg border transition-all duration-200 ${
           currentIndex === total - 1
             ? "opacity-0 pointer-events-none"

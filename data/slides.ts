@@ -20,16 +20,16 @@ export interface SlideConfig {
 }
 
 export const slides: SlideConfig[] = [
-  { id: "cover", title: "Cover", section: "Intro", component: Slide01Cover },
-  { id: "team", title: "The Team", section: "Intro", component: Slide02Team },
-  { id: "problem", title: "The Problem", section: "Context", component: Slide03Problem },
-  { id: "solution", title: "Solution", section: "Context", component: Slide04Solution },
-  { id: "stack", title: "Tech Stack", section: "Technical", component: Slide05Stack },
-  { id: "architecture", title: "Architecture", section: "Technical", component: Slide06Architecture },
-  { id: "database", title: "Database & Algorithm", section: "Technical", component: Slide07Database },
-  { id: "api", title: "REST API", section: "Technical", component: Slide08API },
-  { id: "testing", title: "Testing", section: "Technical", component: Slide09Testing },
-  { id: "conclusions", title: "Conclusions", section: "Wrap-up", component: Slide10Conclusions },
-  { id: "roadmap", title: "V3 Roadmap", section: "Wrap-up", component: Slide11Roadmap },
-  { id: "close", title: "Close", section: "Wrap-up", component: Slide12Close },
+  { id: "cover", title: "Portada", section: "Intro", component: Slide01Cover },
+  { id: "team", title: "El Equipo", section: "Intro", component: Slide02Team },
+  { id: "problem", title: "El Problema", section: "Contexto", component: Slide03Problem },
+  { id: "solution", title: "Solución", section: "Contexto", component: Slide04Solution },
+  { id: "stack", title: "Stack Tecnológico", section: "Técnico", component: Slide05Stack },
+  { id: "architecture", title: "Arquitectura", section: "Técnico", component: Slide06Architecture },
+  { id: "database", title: "Base de Datos y Algoritmo", section: "Técnico", component: Slide07Database },
+  { id: "api", title: "REST API", section: "Técnico", component: Slide08API },
+  { id: "testing", title: "Pruebas", section: "Técnico", component: Slide09Testing },
+  { id: "conclusions", title: "Conclusiones", section: "Cierre", component: Slide10Conclusions },
+  { id: "roadmap", title: "Hoja de Ruta V3", section: "Cierre", component: Slide11Roadmap },
+  { id: "close", title: "Cierre", section: "Cierre", component: Slide12Close },
 ];

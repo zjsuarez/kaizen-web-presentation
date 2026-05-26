@@ -7,18 +7,18 @@ import { staggerContainer, staggerItem, fadeInUp, scaleIn } from "@/lib/animatio
 const painPoints = [
   {
     icon: Table2,
-    title: "Manual Tracking",
-    desc: "Spreadsheets and memory are error-prone and slow. No historical data, no trends.",
+    title: "Registro Manual",
+    desc: "Las hojas de cálculo y la memoria son lentas y propensas a errores. Sin datos históricos ni tendencias.",
   },
   {
     icon: Users,
-    title: "Social Clutter",
-    desc: "Apps like Hevy prioritize community over performance. A feed is not a PR.",
+    title: "Ruido Social",
+    desc: "Apps como Hevy priorizan la comunidad sobre el rendimiento. Un feed no es un PR.",
   },
   {
     icon: Layers,
-    title: "Feature Bloat",
-    desc: "Tools like Jefit make starting a workout more exhausting than training itself.",
+    title: "Exceso de Funciones",
+    desc: "Herramientas como Jefit hacen que empezar un entrenamiento sea más agotador que entrenar.",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Slide03Problem() {
         animate="visible"
         className="font-oswald font-bold text-[44px] text-white tracking-tight self-start mb-6"
       >
-        THE PROBLEM
+        EL PROBLEMA
       </motion.h2>
 
       {/* Quote */}
@@ -52,9 +52,9 @@ export default function Slide03Problem() {
         className="text-center mb-8 max-w-3xl"
       >
         <p className="font-inter text-[22px] italic text-alabaster-grey/85 leading-snug">
-          "Most lifters plateau not from lack of effort,
+          "La mayoría de atletas se estanca no por falta de esfuerzo,
           <br />
-          but from <span className="text-crayola-blue not-italic font-medium">lack of data</span>."
+          sino por <span className="text-crayola-blue not-italic font-medium">falta de datos</span>."
         </p>
       </motion.blockquote>
 
@@ -92,7 +92,7 @@ export default function Slide03Problem() {
         transition={{ delay: 0.55 }}
         className="font-inter text-[14px] text-crayola-blue mt-7 text-center italic"
       >
-        "The market has apps. None of them does ONE thing perfectly."
+        "El mercado tiene apps. Ninguna hace UNA cosa perfectamente."
       </motion.p>
     </div>
   );
