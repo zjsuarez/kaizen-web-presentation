@@ -9,18 +9,21 @@ const links = [
   {
     icon: Github,
     label: "Frontend",
+    href: "https://github.com/zjsuarez/Kaizen-FrontEND",
     url: "github.com/zjsuarez/Kaizen-FrontEND",
     sub: "Kotlin · Jetpack Compose",
   },
   {
     icon: Github,
     label: "Backend",
+    href: "https://github.com/zjsuarez/Kaizen-BackEND",
     url: "github.com/zjsuarez/Kaizen-BackEND",
     sub: "Java 17 · Spring Boot 3",
   },
   {
     icon: Youtube,
     label: "Video Demo",
+    href: "https://www.youtube.com/watch?v=KnZ7yM_tm-I",
     url: "youtube.com/watch?v=KnZ7yM_tm-I",
     sub: "Demostración completa",
   },
@@ -88,12 +91,15 @@ export default function Slide12Close() {
           initial="hidden"
           animate="visible"
         >
-          {links.map(({ icon: Icon, label, url, sub }) => (
-            <motion.div
+          {links.map(({ icon: Icon, label, href, url, sub }) => (
+            <motion.a
               key={label}
               variants={staggerItem}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-shadow-grey border border-white/[0.08] rounded-xl px-5 py-4 flex flex-col items-center gap-2 hover:border-crayola-blue/30 transition-colors group"
-              style={{ minWidth: 160 }}
+              style={{ minWidth: 160, position: "relative", zIndex: 10, pointerEvents: "auto", textDecoration: "none" }}
             >
               <div className="w-9 h-9 rounded-lg bg-crayola-blue/10 flex items-center justify-center">
                 <Icon size={16} className="text-crayola-blue" />
@@ -108,7 +114,7 @@ export default function Slide12Close() {
                 </span>
                 <ExternalLink size={9} className="text-crayola-blue/50 flex-shrink-0" />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </motion.div>

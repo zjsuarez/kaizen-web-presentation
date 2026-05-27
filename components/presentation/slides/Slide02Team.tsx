@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { staggerContainer, staggerItem, fadeInUp } from "@/lib/animations";
 
+const B = ({ children }: { children: React.ReactNode }) => (
+  <span style={{ color: "#2979FF" }}>{children}</span>
+);
+const G = ({ children }: { children: React.ReactNode }) => (
+  <span style={{ color: "#00E676" }}>{children}</span>
+);
+
 const team = [
   {
     name: "Zyrl Justin Suárez Untalan",
@@ -11,14 +18,10 @@ const team = [
     role: "Full-Stack Developer",
     focus: "Enfoque Frontend",
     education: "SMX → DAM 2 STUCOM",
-    contributions: [
-      "Frontend completo en Kotlin & Jetpack Compose",
-      "Sistema de diseño UI Industrial Dark Mode",
-      "UX sin fricción y arquitectura de navegación",
-    ],
-    quote: "Apasionado por una UI limpia y experiencias móviles sin fricción.",
-    linkedin: "linkedin.com/in/zjsuarez/",
-    goal: "Desarrollo móvil con Flutter",
+    linkedinHref: "https://linkedin.com/in/zjsuarez/",
+    linkedinLabel: "linkedin.com/in/zjsuarez/",
+    bio: <>Base en Java y PHP · Objetivo profesional: <G>Flutter</G></>,
+    contribution: <>Frontend — <B>Kotlin + Jetpack Compose</B> · <B>Industrial Dark Mode</B></>,
   },
   {
     name: "John Henard Salango",
@@ -26,14 +29,10 @@ const team = [
     role: "Full-Stack Developer",
     focus: "Enfoque Backend",
     education: "SMX → DAM 2 STUCOM",
-    contributions: [
-      "API REST con Spring Boot 3",
-      "Sistema de autenticación JWT + OAuth",
-      "Base de datos MySQL · Lógica de negocio",
-    ],
-    quote: "Disfruto construyendo sistemas confiables y resolviendo problemas lógicos complejos.",
-    linkedin: "linkedin.com/in/john-henard-salango-fernandez-99a129355",
-    goal: "Desarrollo multiplataforma con Flutter",
+    linkedinHref: "https://linkedin.com/in/john-henard-salango-fernandez-99a129355",
+    linkedinLabel: "linkedin.com/in/john-henard-salango-fernandez-99a129355",
+    bio: <>Base en Java y Python · Objetivo profesional: <G>Flutter</G></>,
+    contribution: <>Backend — <B>Java + Spring Boot</B> · <B>JWT + BCrypt</B> · <B>MySQL</B></>,
   },
 ];
 
@@ -65,7 +64,8 @@ export default function Slide02Team() {
           <motion.div
             key={member.name}
             variants={staggerItem}
-            className="bg-shadow-grey rounded-xl border-l-[3px] border-crayola-blue p-6 flex flex-col gap-4 relative overflow-hidden"
+            className="bg-shadow-grey rounded-xl border-l-[3px] border-crayola-blue p-6 flex flex-col relative overflow-hidden"
+            style={{ gap: 16 }}
           >
             {/* Inner glow */}
             <div
@@ -106,34 +106,51 @@ export default function Slide02Team() {
               </span>
             </div>
 
-            {/* Contributions */}
-            <ul className="flex flex-col gap-1.5">
-              {member.contributions.map((c) => (
-                <li key={c} className="flex items-start gap-2">
-                  <span className="text-crayola-blue mt-1 text-[10px] leading-none">▸</span>
-                  <span className="font-inter text-[13px] text-alabaster-grey/75">{c}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Bio + contribution lines */}
+            <div
+              style={{
+                borderTop: "1px solid #242328",
+                paddingTop: 10,
+                display: "flex",
+                flexDirection: "column",
+                gap: 4,
+              }}
+            >
+              <p
+                className="font-inter"
+                style={{ fontSize: 13, color: "#E5E5E7", fontStyle: "italic", opacity: 0.75 }}
+              >
+                {member.bio}
+              </p>
+              <p
+                className="font-inter"
+                style={{ fontSize: 13, color: "#E5E5E7", opacity: 1 }}
+              >
+                {member.contribution}
+              </p>
+            </div>
 
-            {/* Quote */}
-            <p className="font-inter text-[12px] italic text-alabaster-grey/45 border-t border-white/[0.07] pt-3">
-              "{member.quote}"
-            </p>
-
-            {/* LinkedIn */}
-            <div className="flex items-center gap-1.5 mt-auto">
+            {/* LinkedIn — pinned to bottom */}
+            <a
+              href={member.linkedinHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5"
+              style={{
+                borderTop: "1px solid #242328",
+                paddingTop: 10,
+                marginTop: "auto",
+                position: "relative",
+                zIndex: 10,
+                pointerEvents: "auto",
+                textDecoration: "none",
+              }}
+            >
               <Linkedin size={13} className="text-crayola-blue" />
               <span className="font-inter text-[11px] text-crayola-blue/80 hover:text-crayola-blue transition-colors">
-                {member.linkedin}
+                {member.linkedinLabel}
               </span>
-            </div>
-
-            {/* Goal */}
-            <div className="text-[11px] font-inter text-alabaster-grey/35 border-t border-white/[0.06] pt-2">
-              <span className="text-crayola-blue/60">Objetivo:</span>{" "}
-              {member.goal}
-            </div>
+            </a>
           </motion.div>
         ))}
       </motion.div>

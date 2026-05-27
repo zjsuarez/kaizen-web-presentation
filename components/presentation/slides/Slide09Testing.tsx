@@ -1,13 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { CheckCircle2, Layers, Database } from "lucide-react";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
-const sections = [
+import type { CSSProperties } from "react";
+
+type SectionImageConfig = {
+  containerStyle: CSSProperties;
+  imgStyle: CSSProperties;
+};
+
+const sections: {
+  icon: typeof CheckCircle2;
+  title: string;
+  image: string;
+  imgConfig: SectionImageConfig;
+  accent: string;
+  metrics: { label: string; value: string }[];
+  details: string[];
+}[] = [
   {
     icon: CheckCircle2,
     title: "Pruebas de API",
+    image: "postman-results.png",
+    imgConfig: {
+      containerStyle: {
+        width: "100%",
+        maxHeight: 160,
+        border: "1px solid #242328",
+        borderRadius: 6,
+        background: "#0B0A0F",
+        overflow: "hidden",
+        flexShrink: 0,
+      },
+      imgStyle: {
+        width: "100%",
+        height: "auto",
+        maxHeight: 160,
+        objectFit: "cover",
+        objectPosition: "top left",
+        display: "block",
+      },
+    },
     accent: "#2979FF",
     metrics: [
       { label: "Solicitudes", value: "38" },
@@ -25,6 +61,23 @@ const sections = [
   {
     icon: Layers,
     title: "Validación de Formularios",
+    image: "register-screen.png",
+    imgConfig: {
+      containerStyle: {
+        maxHeight: 200,
+        border: "1px solid #242328",
+        borderRadius: 12,
+        overflow: "hidden",
+        flexShrink: 0,
+        margin: "0 auto",
+      },
+      imgStyle: {
+        width: "auto",
+        height: "auto",
+        maxHeight: 200,
+        display: "block",
+      },
+    },
     accent: "#2979FF",
     metrics: [
       { label: "Capas", value: "2" },
@@ -42,6 +95,26 @@ const sections = [
   {
     icon: Database,
     title: "Prueba de Estrés de BD",
+    image: "mysql-results.png",
+    imgConfig: {
+      containerStyle: {
+        width: "85%",
+        maxHeight: 120,
+        margin: "0 auto",
+        border: "1px solid #242328",
+        borderRadius: 6,
+        overflow: "hidden",
+        flexShrink: 0,
+      },
+      imgStyle: {
+        width: "100%",
+        height: "auto",
+        maxHeight: 120,
+        objectFit: "cover",
+        objectPosition: "top center",
+        display: "block",
+      },
+    },
     accent: "#2979FF",
     metrics: [
       { label: "Perfiles", value: "3" },
@@ -83,7 +156,7 @@ export default function Slide09Testing() {
         initial="hidden"
         animate="visible"
       >
-        {sections.map(({ icon: Icon, title, metrics, details }) => (
+        {sections.map(({ icon: Icon, title, image, imgConfig, metrics, details }, colIdx) => (
           <motion.div
             key={title}
             variants={staggerItem}
@@ -115,7 +188,7 @@ export default function Slide09Testing() {
               </div>
             </div>
 
-            {/* Details */}
+            {/* Details + image below */}
             <div className="px-5 py-4 flex flex-col gap-2 flex-1">
               {details.map((d) => (
                 <div key={d} className="flex items-start gap-2">
@@ -125,6 +198,22 @@ export default function Slide09Testing() {
                   </span>
                 </div>
               ))}
+
+              {/* Screenshot — below caption text */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 * colIdx }}
+                style={{ marginTop: 14, ...imgConfig.containerStyle }}
+              >
+                <Image
+                  src={`/images/${image}`}
+                  alt={title}
+                  width={400}
+                  height={300}
+                  style={imgConfig.imgStyle}
+                />
+              </motion.div>
             </div>
           </motion.div>
         ))}

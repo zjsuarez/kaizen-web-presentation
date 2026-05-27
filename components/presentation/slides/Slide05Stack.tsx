@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { staggerContainer, staggerItem, fadeInUp } from "@/lib/animations";
 
 const columns = [
   {
     label: "FRONTEND",
     sublabel: "Android",
+    logos: ["android-logo.png", "kotlin-logo.png"],
     items: [
-      "Kotlin + Jetpack Compose",
+      "Android / Kotlin + Jetpack Compose",
       "Hilt (Dependency Injection)",
       "Retrofit + OkHttp",
       "Room Database",
@@ -20,6 +22,7 @@ const columns = [
   {
     label: "BACKEND",
     sublabel: "Java / Spring",
+    logos: ["java-logo.png", "spring-boot-logo.png", "mysql-logo.png"],
     items: [
       "Java 17",
       "Spring Boot 3",
@@ -33,14 +36,69 @@ const columns = [
   {
     label: "INFRAESTRUCTURA",
     sublabel: "Cloud / DevOps",
+    logos: ["mysql-logo.png", "tidb-logo.png", "github-logo.png", "jira-logo.png"],
     items: [
       "TiDB Cloud (MySQL-compatible)",
       "DigitalOcean Spaces (S3)",
-      "Jira + GitHub",
+      "GitHub",
+      "Jira",
       "Postman",
     ],
   },
 ];
+
+function LogoImg({ src }: { src: string }) {
+  return (
+    <Image
+      src={`/images/${src}`}
+      alt={src.replace("-logo.png", "")}
+      width={40}
+      height={28}
+      style={{
+        height: 28,
+        width: "auto",
+        objectFit: "contain",
+        opacity: 0.80,
+        transition: "opacity 150ms ease",
+        flexShrink: 0,
+      }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "1"; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = "0.80"; }}
+    />
+  );
+}
+
+function LogoGroup({ logos }: { logos: string[] }) {
+  const count = logos.length;
+
+  if (count === 2) {
+    return (
+      <div style={{ display: "flex", justifyContent: "center", gap: 16 }}>
+        {logos.map((l) => <LogoImg key={l} src={l} />)}
+      </div>
+    );
+  }
+
+  if (count === 3) {
+    // Inverted triangle: 2 on top, 1 below centered
+    return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+        <div style={{ display: "flex", gap: 16 }}>
+          <LogoImg src={logos[0]} />
+          <LogoImg src={logos[1]} />
+        </div>
+        <LogoImg src={logos[2]} />
+      </div>
+    );
+  }
+
+  // 4 logos — 2×2 grid
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, justifyItems: "center", width: "fit-content", margin: "0 auto" }}>
+      {logos.map((l) => <LogoImg key={l} src={l} />)}
+    </div>
+  );
+}
 
 export default function Slide05Stack() {
   return (
@@ -74,7 +132,7 @@ export default function Slide05Stack() {
         initial="hidden"
         animate="visible"
       >
-        {columns.map(({ label, sublabel, items }) => (
+        {columns.map(({ label, sublabel, items, logos }) => (
           <motion.div
             key={label}
             variants={staggerItem}
@@ -97,19 +155,32 @@ export default function Slide05Stack() {
               </div>
             </div>
 
-            {/* Items */}
+            {/* Items — plain text list */}
             <div className="flex flex-col gap-0 flex-1 p-4">
               {items.map((item, idx) => (
                 <div
                   key={item}
                   className="flex items-center gap-2.5 py-1.5 border-b border-white/[0.04] last:border-0"
                 >
-                  <span className="text-crayola-blue/60 text-[9px] font-mono">
+                  <span className="text-crayola-blue/60 text-[9px] font-mono flex-shrink-0">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <span className="font-inter text-[13px] text-alabaster-grey/80">{item}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Logo group at the bottom */}
+            <div
+              style={{
+                borderTop: "1px solid #242328",
+                paddingTop: 14,
+                paddingBottom: 14,
+                paddingLeft: 16,
+                paddingRight: 16,
+              }}
+            >
+              <LogoGroup logos={logos} />
             </div>
           </motion.div>
         ))}

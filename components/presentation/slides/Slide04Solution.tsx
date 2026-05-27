@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import KaizenLogo from "@/components/ui/KaizenLogo";
-import { staggerContainer, staggerItem, fadeInUp, fadeInLeft, fadeInRight } from "@/lib/animations";
+import { staggerContainer, staggerItem, fadeInUp, fadeInLeft } from "@/lib/animations";
 
 const pills = ["Sin Fricción", "Sobrecarga Progresiva", "Sin Ruido Social"];
 
@@ -35,77 +36,37 @@ const features = [
 
 function PhoneMockup() {
   return (
-    <div
-      className="relative mx-auto"
-      style={{ width: 160, height: 320 }}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.92, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+      style={{ maxWidth: 220, margin: "0 auto" }}
     >
-      {/* Phone frame */}
       <div
-        className="absolute inset-0 rounded-[28px] border-2 overflow-hidden"
         style={{
-          borderColor: "rgba(41,121,255,0.35)",
-          background: "#181720",
-          boxShadow: "0 0 40px rgba(41,121,255,0.15)",
+          border: "2px solid #2979FF",
+          borderRadius: 28,
+          overflow: "hidden",
+          boxShadow: "0 0 40px rgba(41, 121, 255, 0.25)",
+          maxHeight: 320,
         }}
       >
-        {/* Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-4 bg-onyx rounded-b-xl z-10" />
-        {/* Screen content */}
-        <div className="absolute inset-0 pt-6 p-3 flex flex-col gap-2">
-          {/* Status bar */}
-          <div className="flex justify-between items-center px-1 mb-1">
-            <div className="w-10 h-1.5 rounded bg-white/10" />
-            <div className="w-6 h-1.5 rounded bg-crayola-blue/40" />
-          </div>
-          {/* Widget 1 – large */}
-          <div className="h-16 rounded-lg border border-crayola-blue/15 bg-shadow-grey/80 p-2 flex flex-col justify-between">
-            <div className="w-12 h-1 rounded bg-white/20" />
-            <div className="flex justify-between items-end">
-              <div className="w-8 h-3 rounded bg-crayola-blue/50" />
-              <div className="w-4 h-4 rounded bg-malachite/30 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-sm bg-malachite/60" />
-              </div>
-            </div>
-          </div>
-          {/* Two widgets */}
-          <div className="flex gap-2">
-            <div className="flex-1 h-10 rounded-lg border border-white/[0.06] bg-shadow-grey/60 p-1.5">
-              <div className="w-8 h-1 rounded bg-white/15 mb-1" />
-              <div className="w-5 h-2 rounded bg-crayola-blue/40" />
-            </div>
-            <div className="flex-1 h-10 rounded-lg border border-white/[0.06] bg-shadow-grey/60 p-1.5">
-              <div className="w-8 h-1 rounded bg-white/15 mb-1" />
-              <div className="w-5 h-2 rounded bg-malachite/30" />
-            </div>
-          </div>
-          {/* Chart widget */}
-          <div className="flex-1 rounded-lg border border-white/[0.06] bg-shadow-grey/60 p-2 overflow-hidden">
-            <div className="w-10 h-1 rounded bg-white/15 mb-2" />
-            <div className="flex items-end gap-1 h-12">
-              {[40, 55, 45, 70, 60, 80, 65].map((h, i) => (
-                <div
-                  key={i}
-                  className="flex-1 rounded-sm"
-                  style={{
-                    height: `${h}%`,
-                    background: i === 5 ? "#2979FF" : "rgba(41,121,255,0.25)",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-          {/* Bottom nav */}
-          <div className="flex justify-around items-center pt-1 border-t border-white/[0.06]">
-            {[0, 1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className={`w-4 h-4 rounded ${i === 0 ? "bg-crayola-blue/60" : "bg-white/10"}`}
-              />
-            ))}
-          </div>
-        </div>
+        <Image
+          src="/images/dashboard-screen.png"
+          alt="Kaizen dashboard screenshot"
+          width={400}
+          height={300}
+          style={{
+            width: "100%",
+            height: "auto",
+            maxHeight: 320,
+            objectFit: "cover",
+            objectPosition: "top center",
+            display: "block",
+          }}
+        />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -153,15 +114,9 @@ export default function Slide04Solution() {
         </motion.div>
 
         {/* Right: phone mockup */}
-        <motion.div
-          variants={fadeInRight}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center"
-          style={{ flex: 1 }}
-        >
+        <div className="flex items-center justify-center" style={{ flex: 1 }}>
           <PhoneMockup />
-        </motion.div>
+        </div>
       </div>
 
       {/* Separator */}
