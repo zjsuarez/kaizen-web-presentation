@@ -7,9 +7,24 @@ import ProgressBar from "./ProgressBar";
 import NavigationControls from "./NavigationControls";
 import { slides } from "@/data/slides";
 
+const DESIGN_W = 1280;
+const DESIGN_H = 720;
+
 export default function PresentationDeck() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const sx = window.innerWidth / DESIGN_W;
+      const sy = window.innerHeight / DESIGN_H;
+      setScale(Math.min(sx, sy));
+    };
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
 
   const goNext = useCallback(() => {
     if (currentIndex < slides.length - 1) {
@@ -74,25 +89,36 @@ export default function PresentationDeck() {
   const CurrentSlide = slides[currentIndex].component;
 
   return (
-    <div className="relative w-screen h-screen bg-onyx overflow-hidden">
-      <AnimatePresence initial={false} custom={direction} mode="wait">
-        <SlideFrame key={currentIndex} direction={direction} slideKey={currentIndex}>
-          <CurrentSlide />
-        </SlideFrame>
-      </AnimatePresence>
+    <div className="w-screen h-screen bg-onyx overflow-hidden flex items-center justify-center">
+      <div
+        style={{
+          width: DESIGN_W,
+          height: DESIGN_H,
+          transform: `scale(${scale})`,
+          transformOrigin: "center center",
+          position: "relative",
+          flexShrink: 0,
+        }}
+      >
+        <AnimatePresence initial={false} custom={direction} mode="wait">
+          <SlideFrame key={currentIndex} direction={direction} slideKey={currentIndex}>
+            <CurrentSlide />
+          </SlideFrame>
+        </AnimatePresence>
 
-      <ProgressBar
-        current={currentIndex}
-        total={slides.length}
-        onNavigate={goToSlide}
-      />
-      <NavigationControls
-        onNext={goNext}
-        onPrev={goPrev}
-        onReset={() => goToSlide(0)}
-        currentIndex={currentIndex}
-        total={slides.length}
-      />
+        <ProgressBar
+          current={currentIndex}
+          total={slides.length}
+          onNavigate={goToSlide}
+        />
+        <NavigationControls
+          onNext={goNext}
+          onPrev={goPrev}
+          onReset={() => goToSlide(0)}
+          currentIndex={currentIndex}
+          total={slides.length}
+        />
+      </div>
     </div>
   );
 }
