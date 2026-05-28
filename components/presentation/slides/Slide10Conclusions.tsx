@@ -20,20 +20,6 @@ const notAchieved = [
   { text: "Integración nativa de IA", note: "intencional — el Flask PoC demuestra el concepto" },
 ];
 
-const problemsSolved = [
-  {
-    problem: "Desajuste de client ID en Google OAuth",
-    fix: "Corregido con Web Client ID en Android Credential Manager",
-  },
-  {
-    problem: "Datos desactualizados en el panel después de entrenar",
-    fix: "Sincronización en segundo plano con WorkManager al restaurar conectividad",
-  },
-  {
-    problem: "Confusión en la navegación de entrenamientos",
-    fix: "Rediseño del estado vacío con creación guiada paso a paso",
-  },
-];
 
 export default function Slide10Conclusions() {
   return (
@@ -115,31 +101,6 @@ export default function Slide10Conclusions() {
             </motion.div>
           </div>
 
-          <div className="border-t border-white/[0.07]" />
-
-          {/* Problems solved */}
-          <div>
-            <h3 className="font-oswald font-bold text-[18px] text-crayola-blue mb-3 tracking-wide">
-              PROBLEMAS RESUELTOS
-            </h3>
-            <motion.div
-              className="flex flex-col gap-2"
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
-              {problemsSolved.map(({ problem, fix }) => (
-                <motion.div
-                  key={problem}
-                  variants={staggerItem}
-                  className="bg-shadow-grey border-l-[3px] border-crayola-blue rounded-r-lg px-3 py-2 flex flex-col gap-0.5"
-                >
-                  <span className="font-inter text-[12px] text-white font-medium">{problem}</span>
-                  <span className="font-inter text-[11px] text-alabaster-grey/45">→ {fix}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
         </motion.div>
       </div>
     </div>

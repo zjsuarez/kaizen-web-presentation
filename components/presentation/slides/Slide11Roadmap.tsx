@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, FileDown, WifiOff, Palette, GitBranch } from "lucide-react";
+import { Brain, WifiOff, Palette, GitBranch } from "lucide-react";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
 
 const roadmap = [
@@ -11,13 +11,7 @@ const roadmap = [
     desc: "Flask PoC integrado directamente en la app móvil como función principal",
     tag: "Alta prioridad",
   },
-  {
-    icon: FileDown,
-    title: "Exportar CSV",
-    desc: "Consultas backend ya implementadas. Solo falta UI + endpoint de descarga",
-    tag: "Ganancia rápida",
-  },
-  {
+{
     icon: WifiOff,
     title: "Modo Offline Total",
     desc: "Extender caché de Room al flujo completo de registro de entrenamiento",
@@ -61,7 +55,7 @@ export default function Slide11Roadmap() {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-5 gap-4 w-full"
+        className="grid grid-cols-4 gap-4 w-full"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
