@@ -24,8 +24,8 @@ const columns = [
     sublabel: "Java / Spring",
     logos: ["java-logo.png", "spring-boot-logo.png", "mysql-logo.png"],
     items: [
-      "Java 17",
       "Spring Boot 3",
+      "Hibernate ORM",
       "Spring Security + JWT (Stateless)",
       "BCrypt",
       "Google OAuth Client",
