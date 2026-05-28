@@ -24,14 +24,6 @@ const features = [
     title: "Panel Personalizable",
     desc: "Cuadrícula de widgets modular con sincronización offline-first via WorkManager",
   },
-  {
-    title: "Google OAuth + Correos",
-    desc: "Inicio de sesión con Credential Manager + correos automáticos post-entrenamiento",
-  },
-  {
-    title: "Prototipo de IA (Flask PoC)",
-    desc: "Entrada en lenguaje natural → plan de entrenamiento estructurado en JSON",
-  },
 ];
 
 function PhoneMockup() {
@@ -134,7 +126,7 @@ export default function Slide04Solution() {
         </motion.h3>
 
         <motion.div
-          className="grid grid-cols-3 gap-3"
+          className="grid grid-cols-2 gap-3"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"

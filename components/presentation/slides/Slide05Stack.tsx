@@ -186,28 +186,7 @@ export default function Slide05Stack() {
         ))}
       </motion.div>
 
-      {/* AI footer */}
-      <motion.div
-        variants={fadeInUp}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.5 }}
-        className="mt-4 flex justify-center"
-      >
-        <div className="bg-shadow-grey border border-crayola-blue/20 rounded-full px-5 py-2 flex items-center gap-3">
-          <span className="font-inter text-[11px] text-white/40 uppercase tracking-widest">
-            Prototipo de IA
-          </span>
-          <div className="w-px h-3 bg-white/10" />
-          <span className="font-inter text-[13px] text-alabaster-grey/70">
-            Python 3 + Flask — PoC independiente
-          </span>
-          <div className="w-px h-3 bg-white/10" />
-          <span className="font-inter text-[11px] text-crayola-blue/70">
-            Lenguaje natural → plan de entrenamiento
-          </span>
-        </div>
-      </motion.div>
+
     </div>
   );
 }
