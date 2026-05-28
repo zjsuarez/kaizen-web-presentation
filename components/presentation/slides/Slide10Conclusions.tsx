@@ -11,13 +11,12 @@ const achieved = [
   "Google OAuth + Correos post-entrenamiento",
   "Colección Postman (38 peticiones / 120+ aserciones)",
   "Inserción de datos de prueba SQL",
-  "PoC de IA con Flask",
 ];
 
 const notAchieved = [
   { text: "CI/CD Pipeline", note: "sustituido por automatización en Postman" },
   { text: "Temas personalizables", note: "previsto para V3" },
-  { text: "Integración nativa de IA", note: "intencional — el Flask PoC demuestra el concepto" },
+  { text: "Integración nativa de IA", note: "previsto para V3" },
 ];
 
 
