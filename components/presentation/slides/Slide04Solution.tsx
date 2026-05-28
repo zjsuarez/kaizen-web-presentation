@@ -5,7 +5,7 @@ import Image from "next/image";
 import KaizenLogo from "@/components/ui/KaizenLogo";
 import { staggerContainer, staggerItem, fadeInUp, fadeInLeft } from "@/lib/animations";
 
-const pills = ["Sin Fricción", "Sobrecarga Progresiva", "Sin Ruido Social"];
+const pills = ["Sin Fricción", "Progreso Continuo", "Sin Ruido Social"];
 
 const features = [
   {
